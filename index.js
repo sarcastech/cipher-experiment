@@ -29,7 +29,7 @@ module.exports = {
     return _charIndexes.map((val, index) => {
       let _num = val - _keyIndexes[index]
       if (_num < 0) {
-        _num = _alphabet.length - Math.abs(_num)
+        _num = _alphabet.length + _num
       }
       return _alphabet[_num]
     }).join('')
