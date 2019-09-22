@@ -1,6 +1,8 @@
+'use strict'
+
 const _alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-let findIndexes = function (str) {
+const findIndexes = function (str) {
   let _chars = str.replace(' ', '').toLowerCase().split('')
   return _chars.map(_char => {
     return _alphabet.indexOf(_char)
@@ -20,9 +22,9 @@ module.exports = {
       return _alphabet[_num]
     }).join('')
   },
-  decode: function (val, key) {
+  decode: function (str, key) {
     let _keyIndexes = findIndexes(key)
-    let _charIndexes = findIndexes(val)
+    let _charIndexes = findIndexes(str)
 
     return _charIndexes.map((val, index) => {
       let _num = val - _keyIndexes[index]
