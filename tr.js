@@ -9,11 +9,11 @@ let findIndexes = function (str) {
 
 module.exports = {
   encode: function (str, key) {
-    let _saltIndexes = findIndexes(key)
+    let _keyIndexes = findIndexes(key)
     let _charIndexes = findIndexes(str)
 
     return _charIndexes.map((val, index) => {
-      let _num = val + _saltIndexes[index]
+      let _num = val + _keyIndexes[index]
       if (_num >= _alphabet.length) {
         _num = _num % _alphabet.length
       }
@@ -21,11 +21,11 @@ module.exports = {
     }).join('')
   },
   decode: function (val, key) {
-    let _saltIndexes = findIndexes(key)
+    let _keyIndexes = findIndexes(key)
     let _charIndexes = findIndexes(val)
 
     return _charIndexes.map((val, index) => {
-      let _num = val - _saltIndexes[index]
+      let _num = val - _keyIndexes[index]
       if (_num < 0) {
         _num = _alphabet.length - Math.abs(_num)
       }
